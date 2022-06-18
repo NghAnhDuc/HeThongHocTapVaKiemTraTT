@@ -6,16 +6,16 @@ namespace HeThongHocTapVaKiemTraTT.Repository
 {
     public class SemesterRepository : ISemesterRepository
     {
-        private readonly MyDbContext _context;
+        private readonly DataContext _context;
 
-        public SemesterRepository(MyDbContext context)
+        public SemesterRepository(DataContext context)
         {
             _context = context;
         }
 
-        public Semester GetSemester(string name)
+        public Semester GetSemester(int id)
         {
-            return _context.Semesters.Where(p => p.Name == name).FirstOrDefault();
+            return _context.Semesters.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public ICollection<Semester> GetSemesters()

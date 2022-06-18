@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HeThongHocTapVaKiemTraTT.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
+    [DbContext(typeof(DataContext))]
     partial class MyDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HeThongHocTapVaKiemTraTT.Data
 {
-    public class MyDbContext : DbContext
+    public class DataContext : DbContext
     {
-        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }

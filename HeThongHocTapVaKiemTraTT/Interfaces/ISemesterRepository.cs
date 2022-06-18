@@ -5,7 +5,7 @@ namespace HeThongHocTapVaKiemTraTT.Interfaces
     public interface ISemesterRepository
     {
         ICollection<Semester> GetSemesters();
-        Semester GetSemester(string name);
-
+        Semester GetSemester(int id);
+        
     }
 }
