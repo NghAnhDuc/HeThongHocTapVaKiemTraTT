@@ -6,6 +6,6 @@ namespace HeThongHocTapVaKiemTraTT.Interfaces
     {
         ICollection<Semester> GetSemesters();
         Semester GetSemester(int id);
-        
+        ICollection<Class> GetClassBySemester(int semesterId);
     }
 }

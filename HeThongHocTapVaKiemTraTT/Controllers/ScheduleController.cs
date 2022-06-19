@@ -26,7 +26,7 @@ namespace HeThongHocTapVaKiemTraTT.Controllers
                 return BadRequest(ModelState);
             return Ok(schedules);
         }
-        [HttpGet("id")]
+        [HttpGet("{scheduleId}")]
         public IActionResult GetSchedule(int id)
         {
             var schedule = _mapper.Map<ScheduleDto>(_scheduleRepository.GetSchedule(id));

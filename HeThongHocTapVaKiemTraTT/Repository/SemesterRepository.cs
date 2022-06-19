@@ -13,6 +13,11 @@ namespace HeThongHocTapVaKiemTraTT.Repository
             _context = context;
         }
 
+        public ICollection<Class> GetClassBySemester(int semesterId)
+        {
+            return _context.Classes.Where(p => p.Semester.Id == semesterId).ToList();
+        }
+
         public Semester GetSemester(int id)
         {
             return _context.Semesters.Where(p => p.Id == id).FirstOrDefault();

@@ -27,13 +27,21 @@ namespace HeThongHocTapVaKiemTraTT.Controllers
             return Ok(semesters);
         }
 
-        [HttpGet("id")]
-        public IActionResult GetSemesterById(int id)
+        [HttpGet("{semesterId}")]
+        public IActionResult GetSemester(int id)
         {
             var semester = _mapper.Map<SemesterDto>(_semesterRepository.GetSemester(id));
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(semester);
+        }
+        [HttpGet("class/{semesterId}")]
+        public IActionResult GetClassBySemester(int semesterId)
+        {
+            var classes = _mapper.Map<List<SemesterDto>>(_semesterRepository.GetClassBySemester(semesterId));
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(classes);
         }
     }
 }

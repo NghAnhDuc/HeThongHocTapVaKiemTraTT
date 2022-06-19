@@ -26,8 +26,8 @@ namespace HeThongHocTapVaKiemTraTT.Controllers
                 return BadRequest(ModelState);
             return Ok(classes);
         }
-        [HttpGet("id")]
-        public IActionResult GetClassById(int id)
+        [HttpGet("{classId}")]
+        public IActionResult GetClass(int id)
         {
             var x = _mapper.Map<ClassDto>(_classRepository.GetClass(id));
             if (!ModelState.IsValid)
@@ -35,9 +35,9 @@ namespace HeThongHocTapVaKiemTraTT.Controllers
             return Ok(x);
         }
         [HttpGet("account/{classId}")]
-        public IActionResult GetAccountByClassId(int classId)
+        public IActionResult GetAccountByClass(int classId)
         {
-            var accounts = _mapper.Map<List<ClassDto>>(_classRepository.GetAccountByClassId(classId));
+            var accounts = _mapper.Map<List<ClassDto>>(_classRepository.GetAccountByClass(classId));
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(accounts);

@@ -26,8 +26,8 @@ namespace HeThongHocTapVaKiemTraTT.Controllers
                 return BadRequest(ModelState);
             return Ok(accounts);
         }
-        [HttpGet("id")]
-        public IActionResult GetAccountById(int id)
+        [HttpGet("{accountId}")]
+        public IActionResult GetAccount(int id)
         {
             var account = _mapper.Map<AccountDto>(_accountRepository.GetAccount(id));
             if (!ModelState.IsValid)
@@ -36,13 +36,28 @@ namespace HeThongHocTapVaKiemTraTT.Controllers
         }
 
         [HttpGet("class/{accountId}")]
-        public IActionResult GetClassByAccountId(int accountId)
+        public IActionResult GetClassByAccount(int accountId)
         {
-            var classes = _mapper.Map<List<AccountDto>>(_accountRepository.GetClassByAccountId(accountId));
+            var classes = _mapper.Map<List<AccountDto>>(_accountRepository.GetClassByAccount(accountId));
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(classes);
         }
-        
+        [HttpGet("test/{accountId}")]
+        public IActionResult GetTestByAccount(int accountId)
+        {
+            var tests = _mapper.Map<List<AccountDto>>(_accountRepository.GetTestByAccount(accountId));
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(tests);
+        }
+        [HttpGet("scoreboard/{accountId}")]
+        public IActionResult GetScoreboardByAccount(int accountId)
+        {
+            var scoreboards = _mapper.Map<List<AccountDto>>(_accountRepository.GetScoreboardByAccount(accountId));
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(scoreboards);
+        }
     }
 }

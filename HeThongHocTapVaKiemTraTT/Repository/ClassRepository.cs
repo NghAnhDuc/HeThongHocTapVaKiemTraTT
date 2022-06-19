@@ -13,7 +13,7 @@ namespace HeThongHocTapVaKiemTraTT.Repository
             _context = context;
         }
 
-        public ICollection<Account> GetAccountByClassId(int classId)
+        public ICollection<Account> GetAccountByClass(int classId)
         {
             return _context.AccountClasses.Where(p => p.ClassId == classId).Select(c => c.Account).ToList();
         }

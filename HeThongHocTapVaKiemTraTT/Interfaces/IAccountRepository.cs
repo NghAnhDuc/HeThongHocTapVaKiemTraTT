@@ -6,6 +6,8 @@ namespace HeThongHocTapVaKiemTraTT.Interfaces
     {
         ICollection<Account> GetAccounts();
         Account GetAccount(int id);
-        ICollection<Class> GetClassByAccountId(int accountId);
+        ICollection<Class> GetClassByAccount(int accountId);
+        ICollection<Test> GetTestByAccount(int accountId);
+        ICollection<Scoreboard> GetScoreboardByAccount(int accountId);
     }
 }

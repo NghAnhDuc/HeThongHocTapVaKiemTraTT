@@ -12,6 +12,10 @@ namespace HeThongHocTapVaKiemTraTT.Helper
             CreateMap<Class, ClassDto>();
             CreateMap<Semester, SemesterDto>();
             CreateMap<Schedule, ScheduleDto>();
+            CreateMap<Scoreboard, ScheduleDto>();
+            CreateMap<Subject, SubjectDto>();
+            CreateMap<Teacher, TeacherDto>();
+            CreateMap<Test, TestDto>();
         }
     }
 }
