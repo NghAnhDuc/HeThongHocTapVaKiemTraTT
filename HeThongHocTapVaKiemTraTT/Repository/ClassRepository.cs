@@ -13,9 +13,16 @@ namespace HeThongHocTapVaKiemTraTT.Repository
             _context = context;
         }
 
-        public ICollection<Account> GetAccountByClass(int classId)
+        public bool CreateClass(Class classs)
         {
-            return _context.AccountClasses.Where(p => p.ClassId == classId).Select(c => c.Account).ToList();
+            _context.Add(classs);
+            return Save();
+        }
+
+        public bool DeleteClass(Class classs)
+        {
+            _context.Remove(classs);
+            return Save();
         }
 
         public Class GetClass(int id)
@@ -25,7 +32,19 @@ namespace HeThongHocTapVaKiemTraTT.Repository
 
         public ICollection<Class> GetClasses()
         {
-           return _context.Classes.OrderBy(p => p.Id).ToList();
+           return _context.Classes.ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
+        public bool UpdateClass(int subjectId, int teacherId, int semesterId, int scheduleId, Class classs)
+        {
+            _context.Update(classs);
+            return Save();
         }
     }
 }

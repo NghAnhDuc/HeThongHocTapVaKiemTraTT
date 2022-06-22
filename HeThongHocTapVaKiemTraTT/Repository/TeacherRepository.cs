@@ -29,9 +29,31 @@ namespace HeThongHocTapVaKiemTraTT.Repository
 
         public ICollection<Teacher> GetTeachers()
         {
-            return _context.Teachers.OrderBy(p => p.Id).ToList();
+            return _context.Teachers.ToList();
         }
 
-        
+        public bool CreateTeacher(Teacher teacher)
+        {
+            _context.Add(teacher);
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
+        public bool UpdateTeacher(Teacher teacher)
+        {
+            _context.Update(teacher);
+            return Save();
+        }
+
+        public bool DeleteTeacher(Teacher teacher)
+        {
+            _context.Remove(teacher);
+            return Save();
+        }
     }
 }

@@ -6,6 +6,9 @@ namespace HeThongHocTapVaKiemTraTT.Interfaces
     {
         ICollection<Scoreboard> GetScoreboards();
         Scoreboard GetScoreboard(int id);
-
+        bool CreateScoreboard(Scoreboard scoreboard);
+        bool UpdateScoreboard(Scoreboard scoreboard);
+        bool DeleteScoreboard(Scoreboard scoreboard);
+        bool Save();
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace HeThongHocTapVaKiemTraTT.Dto
+﻿using HeThongHocTapVaKiemTraTT.Models;
+
+namespace HeThongHocTapVaKiemTraTT.Dto
 {
     public class ClassDto
     {
@@ -10,6 +12,6 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string SecurityCode { get; set; }
-        public string Link { get; set; }
+        public string Link { get; set; }        
     }
 }

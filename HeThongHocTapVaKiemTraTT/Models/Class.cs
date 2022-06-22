@@ -14,7 +14,7 @@
         public Subject Subject { get; set; }
         public Teacher Teacher { get; set; }
         public Semester Semester { get; set; }
-        public Schedule Schedules { get; set; }
+        public Schedule Schedule { get; set; }
         public ICollection<AccountClass> AccountClasses { get; set; }
     }
 }

@@ -12,6 +12,19 @@ namespace HeThongHocTapVaKiemTraTT.Repository
         {
             _context = context;
         }
+
+        public bool CreateSchedule(Schedule schedule)
+        {
+            _context.Add(schedule);
+            return Save();
+        }
+
+        public bool DeleteSchedule(Schedule schedule)
+        {
+            _context.Remove(schedule);
+            return Save();
+        }
+
         public Schedule GetSchedule(int id)
         {
             return _context.Schedules.Where(p => p.Id == id).FirstOrDefault();
@@ -19,7 +32,19 @@ namespace HeThongHocTapVaKiemTraTT.Repository
 
         public ICollection<Schedule> GetSchedules()
         {
-            return _context.Schedules.OrderBy(p => p.Id).ToList();
+            return _context.Schedules.ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
+        public bool UpdateSchedule(Schedule schedule)
+        {
+            _context.Update(schedule);
+            return Save();
         }
     }
 }

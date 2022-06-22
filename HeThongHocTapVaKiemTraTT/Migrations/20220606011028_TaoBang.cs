@@ -123,14 +123,14 @@ namespace HeThongHocTapVaKiemTraTT.Migrations
                     SubjectId = table.Column<int>(type: "int", nullable: false),
                     TeacherId = table.Column<int>(type: "int", nullable: false),
                     SemesterId = table.Column<int>(type: "int", nullable: false),
-                    SchedulesId = table.Column<int>(type: "int", nullable: false)
+                    ScheduleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Classes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Classes_Schedules_SchedulesId",
-                        column: x => x.SchedulesId,
+                        name: "FK_Classes_Schedules_ScheduleId",
+                        column: x => x.ScheduleId,
                         principalTable: "Schedules",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -229,9 +229,9 @@ namespace HeThongHocTapVaKiemTraTT.Migrations
                 column: "ClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classes_SchedulesId",
+                name: "IX_Classes_ScheduleId",
                 table: "Classes",
-                column: "SchedulesId");
+                column: "ScheduleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Classes_SemesterId",

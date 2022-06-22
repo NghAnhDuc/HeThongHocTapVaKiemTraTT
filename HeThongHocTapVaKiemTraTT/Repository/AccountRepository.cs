@@ -12,7 +12,19 @@ namespace HeThongHocTapVaKiemTraTT.Repository
         {
             _context = context;
         }
-  
+
+        public bool CreateAccount(Account account)
+        {
+            _context.Add(account);
+            return Save();
+        }
+
+        public bool DeleteAccount(Account account)
+        {
+            _context.Remove(account);
+            return Save();
+        }
+
         public Account GetAccount(int id)
         {
             return _context.Accounts.Where(p => p.Id == id).FirstOrDefault();
@@ -20,12 +32,7 @@ namespace HeThongHocTapVaKiemTraTT.Repository
 
         public ICollection<Account> GetAccounts()
         {
-            return _context.Accounts.OrderBy(p => p.Id).ToList();
-        }
-
-        public ICollection<Class> GetClassByAccount(int accountId)
-        {
-            return _context.AccountClasses.Where(p => p.AccountId == accountId).Select(e => e.Class).ToList();
+            return _context.Accounts.ToList();
         }
 
         public ICollection<Scoreboard> GetScoreboardByAccount(int accountId)
@@ -36,6 +43,18 @@ namespace HeThongHocTapVaKiemTraTT.Repository
         public ICollection<Test> GetTestByAccount(int accountId)
         {
             return _context.Tests.Where(p => p.Account.Id == accountId).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
+        public bool UpdateAccount(Account account)
+        {
+            _context.Update(account);
+            return Save();
         }
     }
 }

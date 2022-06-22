@@ -1,4 +1,6 @@
-﻿namespace HeThongHocTapVaKiemTraTT.Dto
+﻿using HeThongHocTapVaKiemTraTT.Models;
+
+namespace HeThongHocTapVaKiemTraTT.Dto
 {
     public class ScoreboardDto
     {
@@ -12,5 +14,6 @@
         public double TotalAverageScore { get; set; }
         public string Result { get; set; }
         public DateTime UpdateDate { get; set; }
+       
     }
 }
