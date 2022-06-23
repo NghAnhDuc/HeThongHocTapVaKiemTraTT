@@ -1,6 +1,8 @@
-﻿namespace HeThongHocTapVaKiemTraTT.Models
+﻿using HeThongHocTapVaKiemTraTT.Models;
+
+namespace HeThongHocTapVaKiemTraTT.Dto
 {
-    public class Class
+    public class ClassDto
     {
         public int Id { get; set; }
         public string Status { get; set; }
@@ -10,11 +12,6 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string SecurityCode { get; set; }
-        public string Link { get; set; }
-        public Subject Subject { get; set; }
-        public Teacher Teacher { get; set; }
-        public Semester Semester { get; set; }
-        public Schedule Schedule { get; set; }
-        public ICollection<AccountClass> AccountClasses { get; set; }
+        public string Link { get; set; }        
     }
 }

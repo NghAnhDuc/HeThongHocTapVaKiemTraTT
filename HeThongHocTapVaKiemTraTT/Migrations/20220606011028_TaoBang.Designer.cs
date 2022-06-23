@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HeThongHocTapVaKiemTraTT.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20220606011028_TaoBang")]
     partial class TaoBang
     {

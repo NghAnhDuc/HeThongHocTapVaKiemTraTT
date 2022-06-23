@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HeThongHocTapVaKiemTraTT.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
+    [DbContext(typeof(DataContext))]
     partial class MyDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -92,7 +92,7 @@ namespace HeThongHocTapVaKiemTraTT.Migrations
                     b.Property<int>("NumberOfSessions")
                         .HasColumnType("int");
 
-                    b.Property<int>("SchedulesId")
+                    b.Property<int>("ScheduleId")
                         .HasColumnType("int");
 
                     b.Property<string>("SecurityCode")
@@ -117,7 +117,7 @@ namespace HeThongHocTapVaKiemTraTT.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SchedulesId");
+                    b.HasIndex("ScheduleId");
 
                     b.HasIndex("SemesterId");
 
@@ -320,7 +320,7 @@ namespace HeThongHocTapVaKiemTraTT.Migrations
                 {
                     b.HasOne("HeThongHocTapVaKiemTraTT.Models.Schedule", "Schedules")
                         .WithMany("Classes")
-                        .HasForeignKey("SchedulesId")
+                        .HasForeignKey("ScheduleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
